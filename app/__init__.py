@@ -1,10 +1,10 @@
 # Import extensions
 from flask import Flask
-# from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 
 # Create extension instances
 app = Flask(__name__)
-# db = SQLAlchemy()
+db = SQLAlchemy()
 
 def create_app(config_name):
     """
@@ -15,7 +15,7 @@ def create_app(config_name):
     """
     
     # Initialize flask extensions
-    # db.init_app(app)
+    db.init_app(app)
     
 
     # Import app blueprints
