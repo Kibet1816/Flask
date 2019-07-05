@@ -19,4 +19,24 @@ class User(db.Model):
     password = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
 
+    @property
+    def password(self):
+        """
+        Method to create a write only class property
+        """
+        raise AttributeError("You can\'t read the password attribute")
+
+    @password.setter
+    def password(self,password):
+        """
+        Method to set the password
+        """
+        self.password = generate_password_hash(password)
+
+    def verify_password(self,password):
+        """
+        Method to verify password
+        """
+        return check_password_hash(self.password,password)
+
 
