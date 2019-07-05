@@ -1,18 +1,19 @@
 import os
 
-class Config():
+class Config:
     # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://denis1816:kibet@localhost/pomodoro'
     pass
 
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     pass
 
 class DevConfig(Config):
-    pass
+    DEBUG = True
 
 class TestConfig(Config):
-    pass
+
+    DEBUG = True
 
 config_options = {
     'production': ProdConfig,

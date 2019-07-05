@@ -18,8 +18,11 @@ def create_app(config_name):
     # db.init_app(app)
     
 
+    # Import app blueprints
+    from .main import main as main_blueprint
+    
     # Register app blueprints
-
+    app.register_blueprint(main_blueprint)
 
 
 
