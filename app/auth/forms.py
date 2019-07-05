@@ -3,7 +3,7 @@ from wtforms import BooleanField,PasswordField,SubmitField,StringField,TextAreaF
 from wtforms.validators import Required,Email,EqualTo
 from ..models import User
 
-class RegistrationForm(Flaskorm):
+class RegistrationForm(FlaskForm):
     """
     Form to register new users
 
@@ -29,3 +29,11 @@ class RegistrationForm(Flaskorm):
         """
         if User.query.filter_by(username = data_field.data).first():
             raise ValidationError("This username is already taken")
+
+class LoginForm(FlaskForm):
+    """
+    Form field for users to login
+    """
+    email = StringField("Your email")
+    password = PasswordField("Your password")
+    submit = SubmitField("Sign up")
