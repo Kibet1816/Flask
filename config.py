@@ -1,8 +1,8 @@
 import os
 
 class Config:
-    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://denis1816:kibet@localhost/pomodoro'
-    pass
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://denis1816:kibet@localhost/blog'
+    
 
 class ProdConfig(Config):
     # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")

@@ -9,8 +9,10 @@ class User(db.Model):
         DbModel:Connects our class to our database and allow communication
     """
     __tablename__ = 'users'
+
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(300))
     email = db.Column(db.String(255))
     bio = db.Column(db.String(255))
+    password = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
