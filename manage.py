@@ -4,6 +4,7 @@ from flask_script import Manager,Server,Shell
 from flask_migrate import Migrate,MigrateCommand
 
 
+# app = create_app('development')
 app = create_app('production')
 
 
