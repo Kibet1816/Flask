@@ -1,40 +1,65 @@
-# Blogs
- Blogs is a web application that allows users to add pitches on various categories
-### Author
-[Denis Kibet](https://github.com/Kibet1816)
+# BLOGPOST
 
 ## Description
-Blogs is a web application that is meant to allow users to add blogs on different topics.
-The website has the home page, that has a list of all sources of pitches sorted in categories.
-Click [here]() to see the live site
+#### This is a web application that allows users to express themselves using a blog posts. They they first create an account then log in to start creating blogs..
+#### By **Denis Kibet**
+##[Live Site](https://infinite-dawn-83643.herokuapp.com/)
+The user can:
+* See various blog posts
+* View blogposts they like
+* See the latests posts
+* Subscribe to latest post service
+## Setup/Installation Requirements
+### Prerequisites
+* python3.6
+* pip
+* Virtual environment(virtual)
 
-## Prerequisites
-    - Python 3.6 required
+### Cloning and running
+* Clone the application using git clone(this copies the app onto your device). In terminal:
 
-## Set-up and Installation
-    - Clone the Repo
-    - Edit the start.sh file with your secret key
-    - Install python 3.6
-    - Run `chmod a+x start.sh`
-    - Run `./start.sh`
+          $ git clone https://github.com/Kibet1816/Blogging.git
+          $ cd Blogging
 
-## Instructions for use
+* Creating the virtual environment
 
-- In the home page,click `sign in` in the navbar
-- Click on the `sign up here` link to create a new pitch board account
-- On the navbar , click on a topic of choice to create a new pitch or idea
+          $ python3.6 -m venv --without-pip virtual
+          $ source virtual/bin/env
+          $ curl https://bootstrap.pypa.io/get-pip.py | python
 
-## Known bugs
-No known errors if found drop a message on my profile
+* Installing Flask and other Modules
 
-## Technologies used
-    - Python 3.6
-    - HTML
-    - Bootstrap
+          $ python3.6 -m pip install Flask
+          $ python3.6 -m pip install Flask-Bootstrap
+          $ python3.6 -m pip install Flask-Script
+          $ python3.6 -m pip install -r requirements.txt
+
+* Run the application:
+
+          $ chmod a+x start.sh
+          $ ./start.sh
+### Testing the Application
+* To run the tests for the class files:
+
+          $ python3.6 manage.py test
+
+## Technologies Used
+* Python 3.6
+* Flask
+## Behaviour driven development/ Specifications
+
+| Behaviour |  Sample Input | Sample Output |
+| :---------------- | :---------------: | :------------------ |
+| Display latest blogs | On page load | List of various blogs I have written |
+| Registration | Submit regitration form | User creates an account and receives welcome email |
+| Subscription | Submit subscription form| User receives email eb=very time there is a new post|
+| Edit posts(writer) | Submit edit post | The post is updated with new data from user |
+| Delete posts(writer) | Click delete post | Post is deleted |
+| Delete comments(writer) | Click delete comment | Comment is deleted |
 
 ## Support and contact details
-Contact me on kibet1816@gmail.com for any comments, reviews or advice.
-
-### License and copyright info
-[MIT License](https://github.com/Kibet1816/Pitch-Platform/blob/master/license.md)
-Copyright (c) **Denis Kibet**
+For any questions, troubleshooting or contributions,  find me on:
+* Email: kibet1816@gmail.com
+### License
+[MIT LICENSE](https://github.com/Kibet1816/Blogging/blob/master/license.md)
+Copyright (c) {2019} 
