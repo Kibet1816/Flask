@@ -33,3 +33,12 @@ def login():
             return redirect(request.args.get('next') or url_for('main.index'))
         flash("Invalid email or password")
     return render_template('auth/login.html',login = loginform)
+
+@auth.route('/logout')
+@login_required
+def logout():
+    """
+    Function to logout users
+    """
+    logout_user()
+    return redirect(url_for("main.index"))

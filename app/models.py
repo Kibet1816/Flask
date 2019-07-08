@@ -88,9 +88,9 @@ class Blog(db.Model):
     __tablename__ = 'blogs'
 
     id = db.Column(db.Integer,primary_key = True)
-    pitch_id = db.Column(db.Integer)
-    pitch_title = db.Column(db.String)
-    pitch_subject = db.Column(db.String)
+    blog_id = db.Column(db.Integer)
+    blog_title = db.Column(db.String)
+    blog_subject = db.Column(db.String)
     posted = db.Column(db.DateTime,default = datetime.utcnow)
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
 
@@ -109,6 +109,18 @@ class Blog(db.Model):
         pitches = Pitch.query.filter_by(pitch_id=id).all()
 
         return pitches
+
+class RandQuote():
+    """
+    Class to display random quotes
+    """
+
+    def __init__(self,author,quote,permalink):
+        self.author = author
+        self.quote = quote
+        self.permalink = permalink
+
+
 
 
     

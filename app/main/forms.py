@@ -7,8 +7,8 @@ class BlogForm(FlaskForm):
     Class for users to write their own pitches
     """
 
-    title = StringField('Pitch title',validators=[Required()])
-    blog = TextAreaField('Write a new pitch')
+    title = StringField('Blog title',validators=[Required()])
+    blog = TextAreaField('Write a new blog')
     submit = SubmitField('Submit')
 
 class UpdateProfile(FlaskForm):

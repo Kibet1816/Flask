@@ -1,9 +1,10 @@
 from flask import render_template,request,redirect,url_for,abort
 from . import main
 from flask_login import login_required,current_user
-from ..models import User
+from ..models import User,Blog
 from .forms import BlogForm,UpdateProfile
 from .. import db,photos
+from ..requests import get_quote
 
 @main.route('/')
 def index():
@@ -76,17 +77,25 @@ def blog(id):
 
 
 @main.route('/blog/new',methods = ['GET','POST'])
-def new_pitch():
+def new_blog():
     new = BlogForm()
 
     if new.validate_on_submit():
 
-        brand = Blog(pitch_title = new.title.data,pitch_subject = new.pitch.data)
+        brand = Blog(blog_title = new.title.data,blog_subject = new.subject.data)
         # view = []
         # view.append(brand)
         brand.save_blog()
 
         return redirect(url_for('main.index'))
 
-    title = 'New Pitch'
-    return render_template('pitch.html',title = title,new = new)
+    title = 'New Blog'
+    return render_template('blog.html',title = title,new = new)
+
+@main.route('/random_quote')
+def random_quote():
+    """
+    Function to display random quotes
+    """
+    quote = get_quote()
+    return render_template('quote.html',quote = quote)
