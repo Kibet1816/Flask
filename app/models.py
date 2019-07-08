@@ -30,7 +30,7 @@ class User(UserMixin,db.Model):
     profile_pic_path = db.Column(db.String())
     role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
     pass_secure = db.Column(db.String(255))
-    pitches = db.relationship('Pitch',backref = 'user',lazy = "dynamic")
+    blogs = db.relationship('Blog',backref = 'user',lazy = "dynamic")
 
     @property
     def password(self):
@@ -80,7 +80,7 @@ class Role(db.Model):
 
 class Blog(db.Model):
     """
-    Class that handles pitch post requests
+    Class that handles blog post requests
 
     Args:
         DbModel:Connects our class to our database and allow communication
@@ -96,19 +96,10 @@ class Blog(db.Model):
 
     def save_blog(self):
         """
-        Method to save the pitch
+        Method to save the blogs
         """
         db.session.add(self)
         db.session.commit()
-
-    @classmethod
-    def get_blogs(cls,id):
-        """
-        Method to get the pitches
-        """
-        pitches = Pitch.query.filter_by(pitch_id=id).all()
-
-        return pitches
 
 class RandQuote():
     """

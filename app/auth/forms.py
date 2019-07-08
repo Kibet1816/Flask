@@ -20,7 +20,7 @@ class RegistrationForm(FlaskForm):
         """
         Method to validate email
         """
-        if User.query.filter_by(email =data_field.data ).first():
+        if User.query.filter_by(email = data_field.data ).first():
             raise ValidationError("This email is already taken")
 
     def validate_username(self,data_field):
@@ -36,4 +36,5 @@ class LoginForm(FlaskForm):
     """
     email = StringField("Your email")
     password = PasswordField("Your password")
+    remember = BooleanField("Remember Me")
     submit = SubmitField("Sign up")

@@ -6,12 +6,15 @@ from .forms import BlogForm,UpdateProfile
 from .. import db,photos
 from ..requests import get_quote
 
+
+
 @main.route('/')
 def index():
     """
     View root page function that returns the index page
     """
-    return render_template('index.html')
+    new = Blog.query.all()
+    return render_template('index.html',new = new)
     
 
 @main.route('/user/<uname>')
@@ -68,7 +71,7 @@ def update_pic(uname):
 @main.route('/')
 def blog(id):
     """
-    Function to find pitch
+    Function to find blog
     """
     blogs = Blog.query.filter_by(id)
 
@@ -82,9 +85,8 @@ def new_blog():
 
     if new.validate_on_submit():
 
-        brand = Blog(blog_title = new.title.data,blog_subject = new.subject.data)
-        # view = []
-        # view.append(brand)
+        brand = Blog(blog_title = new.title.data,blog_subject = new.blog.data)
+
         brand.save_blog()
 
         return redirect(url_for('main.index'))

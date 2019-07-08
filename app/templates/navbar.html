@@ -12,7 +12,7 @@
 
 <!-- Collapsible content -->
 <div class="collapse navbar-collapse" id="basicExampleNav">
-  <h1><center>Blogs</center></h1>
+  <!-- <h1><center>Blogs</center></h1> -->
   <!-- Links -->
   <ul class="navbar-nav mr-auto">
     <li class="nav-item active">
@@ -22,13 +22,13 @@
     </li>
     {% if current_user.is_authenticated %}
     <li class="nav-item">
-      <a href="{{url_for('auth.logout')}}">Sign out</a>
+      <a class = 'nav-link' href="{{url_for('auth.logout')}}">Sign out</a>
     </li>
     <li>
-      <a href="blog/new">Start blogging</a>
+      <a class = 'nav-link' href="blog/new">Start blogging</a>
     </li>
     <li>
-      <a href='/random_quote'>Show quote </a>
+      <a class = 'nav-link' href='/random_quote'>Show quote </a>
     </li>
     {% else %}
     <li class="nav-item">

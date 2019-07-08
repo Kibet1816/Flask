@@ -4,7 +4,7 @@ from wtforms.validators import Required
 
 class BlogForm(FlaskForm):
     """
-    Class for users to write their own pitches
+    Class for users to write their own blogs
     """
 
     title = StringField('Blog title',validators=[Required()])
