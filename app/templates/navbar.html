@@ -1,18 +1,50 @@
-<div class="navbar navbar-inverse" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Basic Flask App </a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li ><a href="{{url_for('auth.login')}}">Sign In</a></li>
-            </div>
-            
-        </div>
-    </div>
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="#">Navbar</a>
+      
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+          aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- Collapsible content -->
+                <div class="collapse navbar-collapse" id="basicExampleNav">
+      
+                        <!-- Links -->
+                        <ul class="navbar-nav mr-auto">
+                          <li class="nav-item active">
+                            <a class="nav-link" href="{{url_for('main.index')}}">Home
+                              <span class="sr-only">(current)</span>
+                            </a>
+                          </li>
+                          {% if current_user.is_authenticated %}
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{url_for('auth.login')}}">Sign In</a>
+                          </li>
+                          {% else %}
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Sign out</a>
+                          </li>
+                          {% endif %}
+                    
+                          <!-- Dropdown -->
+                          <!-- <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                            <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                              <a class="dropdown-item" href="#">Action</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                          </li> -->
+                    
+                        </ul>
+                        <!-- Links -->
+                      </div>
+        <!-- Collapsible content -->
+      
+      </nav>
+      <!--/.Navbar-->
